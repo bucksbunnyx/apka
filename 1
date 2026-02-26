@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Paid for Testing Games | Freecash Rewards</title>
+    <link rel="stylesheet" href="https://freecash.plus/assets/index.css">
+    <style>
+        /* Ensure buttons are always clickable */
+        .age-btn {
+            cursor: pointer !important;
+            pointer-events: auto !important;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: rgba(0,255,148,0.3);
+            text-decoration: none;
+        }
+        
+        /* Age selection buttons */
+        .age-buttons-container {
+            display: flex;
+            gap: 0.75rem;
+            width: 100%;
+        }
+        
+        .age-btn {
+            flex: 1;
+            padding: 1rem;
+            border-radius: 16px;
+            font-weight: bold;
+            font-size: 1rem;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 56px;
+        }
+        
+        .age-btn-under21 {
+            background: hsl(var(--secondary));
+            color: hsl(var(--secondary-foreground));
+            border: 2px solid hsl(var(--border));
+        }
+        
+        .age-btn-under21:hover {
+            background: hsl(var(--secondary) / 0.8);
+            border-color: hsl(var(--primary));
+            box-shadow: 0 0 20px rgba(0, 255, 148, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .age-btn-21plus {
+            background: hsl(var(--primary));
+            color: hsl(var(--primary-foreground));
+        }
+        
+        .age-btn-21plus:hover {
+            background: hsl(var(--primary) / 0.9);
+            box-shadow: 0 0 30px rgba(0, 255, 148, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .mobile-age-buttons {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            background: linear-gradient(to top, hsl(var(--background)) 70%, transparent);
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <div class="min-h-screen bg-background text-foreground pb-24 sm:pb-0">
+            <div class="mx-auto max-w-2xl px-4 py-3 sm:px-6 lg:px-8">
+                <div class="mb-3 flex justify-center">
+                    <img src="https://freecash.plus/freecash.png" alt="Freecash Logo" class="h-16 w-16 rounded-2xl shadow-[0_0_30px_rgba(0,255,148,0.3)]">
+                </div>
+                <div class="mb-3 text-center">
+                    <h1 class="mb-1 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+                        <span class="text-primary" id="heroText1">Get paid</span> <span id="heroText2">for testing games!</span>
+                    </h1>
+                    <p class="text-lg text-muted-foreground" id="subtitle">Follow the instructions to start earning today:</p>
+                </div>
+                <div class="mb-3 rounded-2xl bg-[hsl(var(--step-bg))] border border-[hsl(var(--step-border))] p-4">
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex items-start gap-4">
+                                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-primary-foreground">
+                                        <path d="M20 6 9 17l-5-5"></path>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="mb-1 text-base font-semibold text-foreground" id="step1Title">Sign up to Freecash</h3>
+                                    <p class="text-sm text-muted-foreground" id="step1Desc">It's simple to create your free account in just 30 seconds.</p>
+                                </div>
+                            </div>
+                            <div class="my-4 h-px bg-[hsl(var(--step-border))]"></div>
+                        </div>
+                        <div>
+                            <div class="flex items-start gap-4">
+                                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-primary-foreground">
+                                        <path d="M20 6 9 17l-5-5"></path>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="mb-1 text-base font-semibold text-foreground" id="step2Title">Choose a game to test out first</h3>
+                                    <p class="text-sm text-muted-foreground" id="step2Desc">Get a free <span id="bonusAmount">$5</span> for starting your first offer!</p>
+                                </div>
+                            </div>
+                            <div class="my-4 h-px bg-[hsl(var(--step-border))]"></div>
+                        </div>
+                        <div>
+                            <div class="flex items-start gap-4">
+                                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-primary-foreground">
+                                        <path d="M20 6 9 17l-5-5"></path>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="mb-1 text-base font-semibold text-foreground" id="step3Title">Pick 2-3 more games to play</h3>
+                                    <p class="text-sm text-muted-foreground" id="step3Desc">The more you play the more you earn! So pick a few games and play them daily.</p>
+                                </div>
+                            </div>
+                            <div class="my-4 h-px bg-[hsl(var(--step-border))]"></div>
+                        </div>
+                        <div>
+                            <div class="flex items-start gap-4">
+                                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-primary-foreground">
+                                        <path d="M20 6 9 17l-5-5"></path>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="mb-1 text-base font-semibold text-foreground" id="step4Title">Cash Out & Repeat</h3>
+                                    <p class="text-sm text-muted-foreground" id="step4Desc">Withdraw earnings via PayPal, Visa, and other Gift Cards. There's no limit to how much you can make!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 p-4">
+                    <div class="mb-2">
+                        <span class="inline-block rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground" id="proTipLabel">PRO TIP</span>
+                    </div>
+                    <p class="text-sm leading-relaxed text-foreground/90" id="proTipText">Optional in-app purchases in the games can speed things up and boost payouts 2-3x. Each game has its own bonuses, so follow the tips for maximum payout!</p>
+                </div>
+            </div>
+            
+            <!-- Mobile Sticky Age Selection Buttons -->
+            <div class="mobile-age-buttons">
+                <p class="text-center text-sm text-muted-foreground mb-2" id="agePromptMobile">Select your age to continue:</p>
+                <div class="age-buttons-container">
+                    <button class="age-btn age-btn-under21" id="btnUnder21Mobile">
+                        <span id="under21TextMobile">Under 21</span>
+                    </button>
+                    <button class="age-btn age-btn-21plus" id="btn21PlusMobile">
+                        <span id="over21TextMobile">21 or Older</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+(function() {
+    'use strict';
+    
+    // Get URL parameter
+    function getUrlParameter(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+    }
+    
+    // Translations
+    const translations = {
+        en: {
+            heroText1: "Get paid",
+            heroText2: "for testing games!",
+            subtitle: "Follow the instructions to start earning today:",
+            step1Title: "Sign up to Freecash",
+            step1Desc: "It's simple to create your free account in just 30 seconds.",
+            step2Title: "Choose a game to test out first",
+            step2Desc: "Get a free CURRENCY5 for starting your first offer!",
+            step3Title: "Pick 2-3 more games to play",
+            step3Desc: "The more you play the more you earn! So pick a few games and play them daily.",
+            step4Title: "Cash Out & Repeat",
+            step4Desc: "Withdraw earnings via PayPal, Visa, and other Gift Cards. There's no limit to how much you can make!",
+            proTipLabel: "PRO TIP",
+            proTipText: "Optional in-app purchases in the games can speed things up and boost payouts 2-3x. Each game has its own bonuses, so follow the tips for maximum payout!",
+            agePrompt: "Select your age to continue:",
+            under21Text: "Under 21",
+            over21Text: "21 or Older"
+        },
+        de: {
+            heroText1: "Werde bezahlt",
+            heroText2: "für das Testen von Spielen!",
+            subtitle: "Folge den Anweisungen, um noch heute Geld zu verdienen:",
+            step1Title: "Bei Freecash anmelden",
+            step1Desc: "Es ist ganz einfach, dein kostenloses Konto in nur 30 Sekunden zu erstellen.",
+            step2Title: "Wähle zuerst ein Spiel zum Testen",
+            step2Desc: "Erhalte kostenlos CURRENCY5, wenn du dein erstes Angebot startest!",
+            step3Title: "Wähle 2-3 weitere Spiele",
+            step3Desc: "Je mehr du spielst, desto mehr verdienst du! Wähle also ein paar Spiele aus und spiele sie täglich.",
+            step4Title: "Auszahlen & Wiederholen",
+            step4Desc: "Auszahlungen über PayPal, Visa und andere Geschenkkarten. Es gibt keine Grenze, wie viel du verdienen kannst!",
+            proTipLabel: "PROFI-TIPP",
+            proTipText: "Optionale In-App-Käufe in den Spielen können die Dinge beschleunigen und die Auszahlungen um das 2-3-fache steigern. Jedes Spiel hat seine eigenen Boni, also folge den Tipps für maximale Auszahlung!",
+            agePrompt: "Wähle dein Alter, um fortzufahren:",
+            under21Text: "Unter 21",
+            over21Text: "21 oder älter"
+        },
+        fr: {
+            heroText1: "Soyez payé",
+            heroText2: "pour tester des jeux!",
+            subtitle: "Suivez les instructions pour commencer à gagner dès aujourd'hui:",
+            step1Title: "Inscrivez-vous sur Freecash",
+            step1Desc: "C'est simple de créer votre compte gratuit en seulement 30 secondes.",
+            step2Title: "Choisissez d'abord un jeu à tester",
+            step2Desc: "Obtenez gratuitement CURRENCY5 pour commencer votre première offre!",
+            step3Title: "Choisissez 2-3 jeux supplémentaires",
+            step3Desc: "Plus vous jouez, plus vous gagnez! Choisissez donc quelques jeux et jouez-y quotidiennement.",
+            step4Title: "Retrait & Répétez",
+            step4Desc: "Retirez vos gains via PayPal, Visa et autres cartes-cadeaux. Il n'y a pas de limite à combien vous pouvez gagner!",
+            proTipLabel: "CONSEIL PRO",
+            proTipText: "Les achats intégrés optionnels dans les jeux peuvent accélérer les choses et augmenter les paiements de 2 à 3 fois. Chaque jeu a ses propres bonus, alors suivez les conseils pour un paiement maximum!",
+            agePrompt: "Sélectionnez votre âge pour continuer:",
+            under21Text: "Moins de 21 ans",
+            over21Text: "21 ans ou plus"
+        },
+        ja: {
+            heroText1: "報酬を得る",
+            heroText2: "ゲームテストで!",
+            subtitle: "今日から稼ぎ始めるための手順に従ってください:",
+            step1Title: "Freecashに登録",
+            step1Desc: "わずか30秒で無料アカウントを作成できます。",
+            step2Title: "最初にテストするゲームを選択",
+            step2Desc: "最初のオファーを開始すると、無料でCURRENCY5を獲得!",
+            step3Title: "さらに2〜3つのゲームを選択",
+            step3Desc: "プレイすればするほど稼げます！いくつかのゲームを選んで毎日プレイしましょう。",
+            step4Title: "出金と繰り返し",
+            step4Desc: "PayPal、Visa、その他のギフトカードで収益を引き出します。稼げる金額に制限はありません！",
+            proTipLabel: "プロのヒント",
+            proTipText: "ゲーム内のオプションの購入により、スピードアップし、報酬を2〜3倍に増やすことができます。各ゲームには独自のボーナスがあるため、最大の報酬を得るためのヒントに従ってください！",
+            agePrompt: "年齢を選択して続行:",
+            under21Text: "21歳未満",
+            over21Text: "21歳以上"
+        },
+        ko: {
+            heroText1: "돈을 벌어보세요",
+            heroText2: "게임 테스트로!",
+            subtitle: "오늘부터 수익을 시작하려면 다음 지침을 따르세요:",
+            step1Title: "Freecash에 가입",
+            step1Desc: "단 30초 만에 무료 계정을 만들 수 있습니다.",
+            step2Title: "먼저 테스트할 게임 선택",
+            step2Desc: "첫 번째 오퍼를 시작하면 무료로 CURRENCY5를 받으세요!",
+            step3Title: "2-3개의 게임 더 선택",
+            step3Desc: "더 많이 플레이할수록 더 많이 벌 수 있습니다! 몇 가지 게임을 선택하고 매일 플레이하세요.",
+            step4Title: "현금 인출 및 반복",
+            step4Desc: "PayPal, Visa 및 기타 기프트 카드를 통해 수익을 인출하세요. 벌 수 있는 금액에 제한이 없습니다!",
+            proTipLabel: "프로 팁",
+            proTipText: "게임 내 선택적 구매를 통해 속도를 높이고 보상을 2-3배 증가시킬 수 있습니다. 각 게임에는 고유한 보너스가 있으므로 최대 보상을 위한 팁을 따르세요!",
+            agePrompt: "계속하려면 연령을 선택하세요:",
+            under21Text: "21세 미만",
+            over21Text: "21세 이상"
+        },
+        sv: {
+            heroText1: "Få betalt",
+            heroText2: "för att testa spel!",
+            subtitle: "Följ instruktionerna för att börja tjäna pengar idag:",
+            step1Title: "Registrera dig på Freecash",
+            step1Desc: "Det är enkelt att skapa ditt gratis konto på bara 30 sekunder.",
+            step2Title: "Välj ett spel att testa först",
+            step2Desc: "Få gratis CURRENCY5 för att starta ditt första erbjudande!",
+            step3Title: "Välj 2-3 fler spel att spela",
+            step3Desc: "Ju mer du spelar desto mer tjänar du! Så välj några spel och spela dem dagligen.",
+            step4Title: "Ta ut pengar och upprepa",
+            step4Desc: "Ta ut intäkter via PayPal, Visa och andra presentkort. Det finns ingen gräns för hur mycket du kan tjäna!",
+            proTipLabel: "PROFFSTIPS",
+            proTipText: "Valfria köp i appen kan påskynda saker och öka utbetalningarna 2-3 gånger. Varje spel har sina egna bonusar, så följ tipsen för maximal utbetalning!",
+            agePrompt: "Välj din ålder för att fortsätta:",
+            under21Text: "Under 21",
+            over21Text: "21 år eller äldre"
+        },
+        nl: {
+            heroText1: "Word betaald",
+            heroText2: "voor het testen van games!",
+            subtitle: "Volg de instructies om vandaag te beginnen met verdienen:",
+            step1Title: "Meld je aan bij Freecash",
+            step1Desc: "Het is eenvoudig om je gratis account in slechts 30 seconden aan te maken.",
+            step2Title: "Kies eerst een game om te testen",
+            step2Desc: "Krijg gratis CURRENCY5 voor het starten van je eerste aanbieding!",
+            step3Title: "Kies 2-3 extra games",
+            step3Desc: "Hoe meer je speelt, hoe meer je verdient! Kies dus een paar games en speel ze dagelijks.",
+            step4Title: "Uitbetalen en herhalen",
+            step4Desc: "Haal je verdiensten op via PayPal, Visa en andere cadeaubonnen. Er is geen limiet aan hoeveel je kunt verdienen!",
+            proTipLabel: "PRO TIP",
+            proTipText: "Optionele in-app aankopen in de games kunnen dingen versnellen en uitbetalingen 2-3x verhogen. Elk spel heeft zijn eigen bonussen, dus volg de tips voor maximale uitbetaling!",
+            agePrompt: "Selecteer je leeftijd om door te gaan:",
+            under21Text: "Onder de 21",
+            over21Text: "21 of ouder"
+        }
+    };
+    
+    // Country mapping
+    const countries = {
+        us: {lang: 'en', currency: '$'},
+        ca: {lang: 'en', currency: '$'},
+        gb: {lang: 'en', currency: '£'},
+        au: {lang: 'en', currency: '$'},
+        de: {lang: 'de', currency: '€'},
+        fr: {lang: 'fr', currency: '€'},
+        at: {lang: 'de', currency: '€'},
+        ch: {lang: 'de', currency: 'CHF'},
+        es: {lang: 'en', currency: '€'},
+        it: {lang: 'en', currency: '€'},
+        nl: {lang: 'nl', currency: '€'},
+        be: {lang: 'nl', currency: '€'},
+        jp: {lang: 'ja', currency: '¥'},
+        kr: {lang: 'ko', currency: '₩'},
+        se: {lang: 'sv', currency: 'kr'}
+    };
+    
+    // Detect country from sub2 parameter
+    const sub2 = getUrlParameter('sub2');
+    const countryCode = sub2 ? sub2.substring(0, 2).toLowerCase() : 'us';
+    const locale = countries[countryCode] || {lang: 'en', currency: '$'};
+    const t = translations[locale.lang] || translations['en'];
+    
+    // Apply translations
+    function setText(id, text) {
+        const elem = document.getElementById(id);
+        if (elem) elem.textContent = text;
+    }
+    
+    setText('heroText1', t.heroText1);
+    setText('heroText2', t.heroText2);
+    setText('subtitle', t.subtitle);
+    setText('step1Title', t.step1Title);
+    setText('step1Desc', t.step1Desc);
+    setText('step2Title', t.step2Title);
+    setText('step2Desc', t.step2Desc.replace(/CURRENCY/g, locale.currency));
+    setText('step3Title', t.step3Title);
+    setText('step3Desc', t.step3Desc);
+    setText('step4Title', t.step4Title);
+    setText('step4Desc', t.step4Desc);
+    setText('proTipLabel', t.proTipLabel);
+    setText('proTipText', t.proTipText);
+    setText('bonusAmount', locale.currency + '5');
+    setText('agePromptMobile', t.agePrompt);
+    setText('under21TextMobile', t.under21Text);
+    setText('over21TextMobile', t.over21Text);
+    
+    // Build final URL with sub2 parameter
+    function buildFinalUrl() {
+        let finalUrl = 'https://rewardorbit.com/r/eyJ0IjoiZnJlZWNhc2gtY3BpIiwidSI6IjY5ODM2NGFjZGU0ZjMzNjhkNDA0ZjZiYSIsInRzIjoxNzcyMTIxMTIyNzA1fQ';
+        
+        if (sub2) {
+            const separator = finalUrl.includes('?') ? '&' : '?';
+            finalUrl += separator + 'sub2=' + encodeURIComponent(sub2);
+        }
+        
+        return finalUrl;
+    }
+    
+    // Click handler - both buttons go to same place
+    function handleClick() {
+        const url = buildFinalUrl();
+        console.log('🚀 Button clicked - Redirecting to:', url);
+        window.location.href = url;
+    }
+    
+    // Attach event listeners to all buttons
+    const buttons = [
+        document.getElementById('btnUnder21Mobile'),
+        document.getElementById('btn21PlusMobile')
+    ];
+    
+    buttons.forEach(btn => {
+        if (btn) btn.addEventListener('click', handleClick);
+    });
+    
+    console.log('=== DEBUG INFO ===');
+    console.log('sub2:', sub2);
+    console.log('Country Code:', countryCode);
+    console.log('Locale:', locale);
+    console.log('Final URL:', buildFinalUrl());
+    console.log('==================');
+    
+})();
+</script>
+</body>
+</html>
